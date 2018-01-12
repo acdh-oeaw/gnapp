@@ -3,8 +3,12 @@ from django.shortcuts import render
 from django.views.generic.edit import FormView
 from pygermanet import load_germanet
 from .forms import TokenForm, LongTextForm
+from django.conf import settings
 
-gn = load_germanet()
+gn_host = settings.MONGO_SETTINGS['host']
+gn_port = settings.MONGO_SETTINGS['port']
+
+gn = load_germanet(host=gn_host, port=gn_port)
 
 
 class TokenQuery(FormView):

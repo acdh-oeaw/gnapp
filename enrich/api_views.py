@@ -1,8 +1,13 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from pygermanet import load_germanet
+from django.conf import settings
 
-gn = load_germanet()
+gn_host = settings.MONGO_SETTINGS['host']
+gn_port = settings.MONGO_SETTINGS['port']
+
+gn = load_germanet(host=gn_host, port=gn_port)
+
 
 @api_view()
 def synset(request):

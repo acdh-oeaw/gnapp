@@ -8,6 +8,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MONGO_SETTINGS = {
+    'host': 'localhost',
+    'port': 27017,
+}
+
 
 DATABASES = {
     'default': {
