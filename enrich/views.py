@@ -4,6 +4,8 @@ from django.views.generic.edit import FormView
 from pygermanet import load_germanet
 from .forms import TokenForm, LongTextForm
 from django.conf import settings
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 gn_host = settings.MONGO_SETTINGS['host']
 gn_port = settings.MONGO_SETTINGS['port']
@@ -15,6 +17,10 @@ class TokenQuery(FormView):
     template_name = 'enrich/token_query.html'
     form_class = TokenForm
     success_url = '.'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(TokenQuery, self).dispatch(*args, **kwargs)
 
     def form_valid(self, form, **kwargs):
         context = super(TokenQuery, self).get_context_data(**kwargs)
