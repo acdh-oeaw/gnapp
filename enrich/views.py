@@ -9,8 +9,10 @@ from django.contrib.auth.decorators import login_required
 
 gn_host = settings.MONGO_SETTINGS['host']
 gn_port = settings.MONGO_SETTINGS['port']
+gn_user = settings.MONGO_SETTINGS['user']
+gn_pw = settings.MONGO_SETTINGS['pw']
 
-gn = load_germanet(host=gn_host, port=gn_port)
+gn = load_germanet(host=gn_host, port=gn_port, user=gn_user, pw=gn_pw)
 
 
 class TokenQuery(FormView):
