@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'rest_framework',
+    'rest_framework.authtoken',
     'webpage',
     'enrich',
 ]
@@ -37,7 +38,12 @@ CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':
-    ('rest_framework.permissions.IsAuthenticated',)
+    ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'entities.custom_authentication.TokenAuthSupportQueryString'
+    )
 }
 
 
