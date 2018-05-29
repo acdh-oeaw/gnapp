@@ -8,9 +8,18 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 gn_host = settings.MONGO_SETTINGS['host']
-gn_port = settings.MONGO_SETTINGS['port']
-gn_user = settings.MONGO_SETTINGS['user']
-gn_pw = settings.MONGO_SETTINGS['pw']
+try:
+    gn_port = settings.MONGO_SETTINGS['port']
+except KeyError:
+    gn_port = 27017
+try:
+    gn_user = settings.MONGO_SETTINGS['user']
+except KeyError:
+    gn_user = None
+try:
+    gn_pw = settings.MONGO_SETTINGS['pw']
+except KeyError:
+    gn_pw = None
 
 gn = load_germanet(host=gn_host, port=gn_port, user=gn_user, pw=gn_pw)
 
