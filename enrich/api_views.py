@@ -33,10 +33,11 @@ def synset(request):
             syn = {
                 'orthForm': [y.orthForm for y in x.lemmas],
                 'pos': [y.pos for y in x.lemmas],
-                'hypernyms': ["{}".format(y) for y in x.hypernyms],
-                'hypernym_paths': ["{}".format(y) for y in x.hypernym_paths]
+                'hypernyms': [str(y) for y in x.hypernyms],
+                'hypernym_paths': [str(y) for y in x.hypernym_paths[0]]
             }
             synonyms.append(syn)
+            print(synonyms)
         enriched['token'] = token
         enriched['lemma'] = lemma
         enriched['synset_list'] = synonyms
