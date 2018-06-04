@@ -21,7 +21,7 @@ try:
 except KeyError:
     gn_pw = None
 
-gn = load_germanet(host=gn_host, port=gn_port, user=gn_user, pw=gn_pw)
+gn = load_germanet(host=gn_host, port=gn_port)
 
 
 class TokenQuery(FormView):
