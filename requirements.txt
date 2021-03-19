@@ -8,7 +8,7 @@ django-extensions==1.9.9
 djangorestframework==3.7.7
 idna==2.6
 itypes==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 git+https://github.com/acdh-oeaw/pygermanet@852cd70ffa372925133c90661cdf09e1162c806b#egg=pygermanet
 pymongo==3.6.0
